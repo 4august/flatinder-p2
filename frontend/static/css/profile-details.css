@@ -1,0 +1,53 @@
+#cabecalho .botoes-acao {
+    display: flex;
+    justify-content: end;
+}
+
+#cabecalho .botoes-acao .link-padrao {
+    padding: 56px 20px 0px 0px;
+    font-size: 16px
+}
+
+#detalhes-perfil {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 50vh;
+}
+
+#detalhes-perfil .area-conteudo {
+    text-align: center;
+    padding: 0px 40px;
+}
+
+.titulo h1 {
+    padding: 0px 40px;
+}
+
+#detalhes-perfil .area-conteudo .perfil-usuario .imagem-perfil .botao-camera {
+    position: relative;
+    display: inline;
+    right: 30px;
+    top: 60px;
+}
+
+#detalhes-perfil .area-conteudo .perfil-usuario .imagem-perfil .botao-camera .botao-padrao {
+    padding: 5px;
+    border-radius: 20px;
+    width: 33px;
+}
+
+#detalhes-perfil .area-conteudo .perfil-usuario .imagem-perfil .imagem-usuario {
+    border-radius: 10px;
+    padding-top: 53px;
+}
+
+#detalhes-perfil .area-conteudo .area-input {
+    padding-top: 46px;
+}
+
+#detalhes-perfil .area-conteudo .area-input .botao-acao .botao-padrao {
+    width: 80%;
+    margin-top: 44px;
+    font-size: 16px;
+}
