@@ -1,0 +1,8 @@
+.botao-padrao {
+    background-color: #E94057;
+    font-family: 'Roboto', sans-serif;
+    border-radius: 10px;
+    color: white;
+    padding: 8px 32px;
+    text-decoration: none;
+}

@@ -1,0 +1,25 @@
+#login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    height: 90vh;
+}
+
+#login .conteudo-login {
+    text-align: center;
+}
+
+#login .conteudo-login .sign-area .botao-cadastrar {
+    display: block;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+    text-decoration: none;
+    color: black;
+    padding: 58px 0px 22px 0px;
+}
+
+#termos-uso .termos-politica {
+    display: flex;
+    justify-content: space-around;
+}
