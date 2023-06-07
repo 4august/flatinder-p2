@@ -1,6 +1,7 @@
-@import 'sign-up.css';
+/* css templates */
+@import '../sign-up.css';
 
+/* css global */
 @import 'estilo-botao.css';
 @import 'estilo-link.css';
-
 @import 'fonts.css'
