@@ -1,0 +1,185 @@
+body {
+    background-color: #F3F3F3;
+    color: #000000;
+}
+
+h1 {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 34px;
+    line-height: 150%;
+}
+
+h6 {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.7);
+    line-height: 21px;
+}
+
+h5{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: rgba(0, 0, 0, 0.7);
+}
+
+svg {
+    color: #000000 !important;
+}
+
+.container-main {
+    min-height: 150vh;
+    align-content: center;
+    display: grid;
+}
+
+.navbar {
+    margin-bottom: 32px;
+}
+
+.navbar img, .matches .icon-title {
+    padding: 20px;
+    border: 1px solid #E8E6EA;
+    border-radius: 15px;
+}
+
+.navbar span {
+    color: #E94057;
+    font-weight: 700
+}
+
+.device {
+    background-color: #FFFFFF;
+    margin: auto;
+    height: 812px;
+    min-width: 375px;
+    padding: 44px 40px;
+}
+
+.interest {
+    margin: 6px 0;
+}
+.insterests .option-selected{
+    background: #E94057;
+    box-shadow: 0px 15px 15px rgba(233, 64, 87, 0.2);
+    border-radius: 15px;
+    padding: 12px 10px;
+    align-items: center;
+    display: flex;
+}
+.interests .option-selected h6{
+    color: #FFFFFF;
+}
+.interests .option-selected  svg {fill: #FFFFFF}
+.interests .option {
+    border: 1px solid #E8E6EA;
+    border-radius: 15px;
+    padding: 12px 10px;
+    align-items: center;
+    display: flex;
+}
+.interests .option img{margin-right: 8px;}
+.interests .option h6 {
+    margin: 0;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    color: #000000;
+}
+
+.interests .form button,
+.whoAmI .form button{
+    background-color:#E94057;
+    border-radius: 15px;
+    padding: 16px 32px;
+    border: none;
+    color: #FFFFFF;
+    font-size: 16px;
+    font-weight: 700;
+    margin-top: 40px;
+}
+.whoAmI .form button{
+    position: absolute;
+    bottom: 0;
+    left: calc(0% - 0px);
+}
+.whoAmI .form{
+    min-height: 600px;
+    padding-top: 86px;
+    position: relative;
+}
+
+.whoAmI .sex-option{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 15px;
+    padding: 0 16px;
+    border: 1px solid #E8E6EA;
+    margin: 4px 0;
+}
+.whoAmI .sex-option label{
+    width: 100%;
+    padding: 16px 32px;
+    padding-left: 8px;
+}
+.matches{
+    position: relative;
+    border: 1px solid;
+}
+.matches .navigation{
+    position: absolute;
+    bottom: 0;
+    left: calc(0% - 0px);
+    width: 100%;
+    padding: 12px 40px;
+    background: #F3F3F3;
+}
+.matches h5{margin-top: 20px;}
+.matches .match-list{
+    height: 600px;
+    overflow-x: auto;
+} 
+.matches .match-list::-webkit-scrollbar {display: none;}
+.matches .match-list .match{
+    min-height: 195px;
+    margin: 5px 0;
+}
+.matches .match-list .info{
+    background-repeat: no-repeat;
+    background-size: contain;
+    align-items: end;
+    display: grid;
+    position: relative;
+    height: 100%;
+}
+.matches .match-list .match h5, .matches .match-list .match img{
+    position: absolute;
+    bottom: 0;
+}
+.matches .match-list .match h5{
+    color: #FFFFFF;
+    margin: 0 0 32px 16px;
+    font-weight: 700;
+}
+/* .matches .match-list .match .undo-match{
+    background: url(pexels-tomaz-barcellos-1987301);
+    filter: blur(12px);
+} */
+.matches .match-list .match img{
+    left: calc(50% - 15px);
+}
+@media (max-width: 1024px){
+    h1{font-size: 30px;}
+    h6, .insterests .option h6{font-size: 13px;}
+}
+
+@media (max-width: 768px){
+    .matches .match-list .info{
+        width: 50%;
+        margin: auto;
+    }
+}
