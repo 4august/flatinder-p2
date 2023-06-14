@@ -1,5 +1,5 @@
 body {
-    background-color: #F3F3F3;
+    background-color: #e5e5e5;
     color: #000000;
 }
 
@@ -18,7 +18,7 @@ h6 {
     line-height: 21px;
 }
 
-h5{
+h5 {
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -33,14 +33,15 @@ svg {
 .container-main {
     min-height: 150vh;
     align-content: center;
-    display: grid;
+    display: inline;
 }
 
 .navbar {
     margin-bottom: 32px;
 }
 
-.navbar img, .matches .icon-title {
+.navbar img,
+.matches .icon-title {
     padding: 20px;
     border: 1px solid #E8E6EA;
     border-radius: 15px;
@@ -62,18 +63,19 @@ svg {
 .interest {
     margin: 6px 0;
 }
-.insterests .option-selected{
-    background: #E94057;
-    box-shadow: 0px 15px 15px rgba(233, 64, 87, 0.2);
+
+.interests .selected {
+    background: #E94057!important;
+    box-shadow: 0px 15px 15px rgba(233, 64, 87, 0.2)!important;
     border-radius: 15px;
     padding: 12px 10px;
     align-items: center;
     display: flex;
+    color: #FFFFFF!important;
 }
-.interests .option-selected h6{
-    color: #FFFFFF;
-}
-.interests .option-selected  svg {fill: #FFFFFF}
+
+
+
 .interests .option {
     border: 1px solid #E8E6EA;
     border-radius: 15px;
@@ -81,8 +83,12 @@ svg {
     align-items: center;
     display: flex;
 }
-.interests .option img{margin-right: 8px;}
-.interests .option h6 {
+
+.interests .option img {
+    margin-right: 8px;
+}
+
+.interests .option {
     margin: 0;
     font-weight: 400;
     font-size: 14px;
@@ -91,8 +97,8 @@ svg {
 }
 
 .interests .form button,
-.whoAmI .form button{
-    background-color:#E94057;
+.whoAmI .form button {
+    background-color: #E94057;
     border-radius: 15px;
     padding: 16px 32px;
     border: none;
@@ -101,18 +107,20 @@ svg {
     font-weight: 700;
     margin-top: 40px;
 }
-.whoAmI .form button{
+
+.whoAmI .form button {
     position: absolute;
     bottom: 0;
     left: calc(0% - 0px);
 }
-.whoAmI .form{
+
+.whoAmI .form {
     min-height: 600px;
     padding-top: 86px;
     position: relative;
 }
 
-.whoAmI .sex-option{
+.whoAmI .sex-option {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -121,16 +129,20 @@ svg {
     border: 1px solid #E8E6EA;
     margin: 4px 0;
 }
-.whoAmI .sex-option label{
+
+.whoAmI .sex-option label {
     width: 100%;
     padding: 16px 32px;
     padding-left: 8px;
 }
-.matches{
+
+.matches {
     position: relative;
     border: 1px solid;
 }
-.matches .navigation{
+
+.matches .navigation,
+.main .navigation {
     position: absolute;
     bottom: 0;
     left: calc(0% - 0px);
@@ -138,17 +150,26 @@ svg {
     padding: 12px 40px;
     background: #F3F3F3;
 }
-.matches h5{margin-top: 20px;}
-.matches .match-list{
+
+.matches h5 {
+    margin-top: 20px;
+}
+
+.matches .match-list {
     height: 600px;
     overflow-x: auto;
-} 
-.matches .match-list::-webkit-scrollbar {display: none;}
-.matches .match-list .match{
+}
+
+.matches .match-list::-webkit-scrollbar {
+    display: none;
+}
+
+.matches .match-list .match {
     min-height: 195px;
     margin: 5px 0;
 }
-.matches .match-list .info{
+
+.matches .match-list .info {
     background-repeat: no-repeat;
     background-size: contain;
     align-items: end;
@@ -156,29 +177,197 @@ svg {
     position: relative;
     height: 100%;
 }
-.matches .match-list .match h5, .matches .match-list .match img{
+
+.matches .match-list .match h5,
+.matches .match-list .match img {
     position: absolute;
     bottom: 0;
 }
-.matches .match-list .match h5{
+
+.matches .match-list .match h5 {
     color: #FFFFFF;
     margin: 0 0 32px 16px;
     font-weight: 700;
 }
+
 /* .matches .match-list .match .undo-match{
     background: url(pexels-tomaz-barcellos-1987301);
     filter: blur(12px);
 } */
-.matches .match-list .match img{
+.matches .match-list .match img {
     left: calc(50% - 15px);
 }
-@media (max-width: 1024px){
-    h1{font-size: 30px;}
-    h6, .insterests .option h6{font-size: 13px;}
+
+.match-notification {
+    position: relative;
+    display: grid;
+    align-content: end;
+    text-align: center;
 }
 
-@media (max-width: 768px){
-    .matches .match-list .info{
+.match-notification .person-one,
+.match-notification .person-two {
+    height: 260px;
+    width: 200px;
+    background-repeat: no-repeat;
+}
+
+.match-notification .person-one {
+    margin-right: auto;
+    position: absolute;
+    top: 17%;
+    left: 13%;
+}
+
+.match-notification .person-two {
+    margin-left: auto;
+    position: absolute;
+    top: 6%;
+    right: 9%;
+}
+
+.match-notification h1 {
+    color: #E94057
+}
+
+.match-notification h6 {
+    margin-bottom: 72px;
+}
+
+.match-notification .go-chat,
+.onboarding .go-cadaster {
+    background-color: #E94057;
+    color: #FFFFFF;
+}
+
+.match-notification .keep-swiping {
+    color: #E94057;
+    font-weight: 700;
+}
+
+.match-notification .go-chat,
+.match-notification .keep-swiping,
+.onboarding .go-cadaster {
+    border: none;
+    padding: 16px 32px;
+    border-radius: 15px;
+    margin: 12px 0;
+}
+
+.match-notification .person-one img,
+.match-notification .person-two img {
+    background-color: #FFFFFF;
+    padding: 12px;
+    border-radius: 100%;
+    position: absolute;
+    box-shadow: 0px 20px 50px;
+}
+
+.match-notification .person-one img {
+    bottom: -5%;
+    left: 15%;
+    transform: rotate(-10deg);
+}
+
+.match-notification .person-two img {
+    top: -5%;
+    left: 15%;
+    transform: rotate(10deg);
+}
+
+.main {
+    position: relative;
+}
+
+.main .person-profile {
+    height: 450px;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-top: 48px;
+    border-radius: 15px;
+    padding: 20px 16px;
+    display: flex;
+    align-items: end;
+    color: #FFFFFF;
+}
+
+.main .options div {
+    box-shadow: 0px 15px 15px rgba(233, 64, 87, 0.2);
+    border-radius: 100%;
+}
+
+.main .options .next,
+.main .options .super-like {
+    height: 20px;
+    width: 20px;
+    padding: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main .options .like {
+    background-color: #E94057;
+    padding: 32px 28px;
+}
+
+.main .options .like img {
+    height: 36px;
+    width: 42px;
+}
+.onboarding{
+    position: relative;
+}
+
+.onboarding .info-carrossel {
+    text-align: center;
+}
+
+.onboarding .slick-slide h3,
+.onboarding .slick-slide h6 {
+    display: none;
+}
+
+.onboarding .slick-current h3,
+.onboarding .slick-current h6 {
+    display: block !important;
+}
+
+.onboarding .info-carrossel img {
+    margin: auto;
+    width: 235px;
+    height: 360px;
+    object-fit: cover;
+}
+
+.onboarding .go-cadaster {
+    margin: 20px 0;
+    width: 100%;
+}
+.onboarding .footer {
+    position: absolute;
+    bottom: 0;
+    left: calc(0% - 0px);
+    width: 100%;
+    padding: 0 40px 44px 40px ;
+}
+.onboarding .footer h6{
+    text-align: center;
+}
+@media (max-width: 1024px) {
+    h1 {
+        font-size: 30px;
+    }
+
+    h6,
+    .insterests .option h6 {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 768px) {
+    .matches .match-list .info {
         width: 50%;
         margin: auto;
     }
