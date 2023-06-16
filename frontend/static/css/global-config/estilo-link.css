@@ -1,6 +1,12 @@
 .link-padrao {
+    display: flex;
+    justify-content: end;
     font-family: 'Roboto', sans-serif;
     text-decoration: none;
     color: #E94057;
-    font-size: 14px;
+    font-size: 16px;
+}
+
+.link-padrao:hover{
+    color: #E94057;
 }

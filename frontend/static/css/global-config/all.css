@@ -5,4 +5,8 @@
 /* css global */
 @import 'estilo-botao.css';
 @import 'estilo-link.css';
-@import 'fonts.css'
+@import 'fonts.css';
+
+body {
+    background-color: #E5E5E5;
+}
