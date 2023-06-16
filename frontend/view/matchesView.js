@@ -1,6 +1,6 @@
 class MatchesView{
     constructor(){
-        this.template();
+        this.template()
     }
 
     template(){
@@ -77,11 +77,7 @@ class MatchesView{
                 </div>
             </div>
 
-            <div class="navigation d-flex justify-content-between">
-                <img src="imagens/cards.svg" alt="">
-                <img src="imagens/indicator.svg" alt="">
-                <img src="imagens/people.svg" alt="">
-            </div>
+            <div class="navigation"></div>
         </div>
         `
     }

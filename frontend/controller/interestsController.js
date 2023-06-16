@@ -1,8 +1,13 @@
 class Interests{
     constructor(){
+        
+        this.init();
+    }
+    init(){
         this.interests = document.querySelectorAll(".option");
         this.checkBoxes = document.querySelectorAll(".option-checkbox");
         this.sentFormulary = document.querySelector(".form button");
+        
         this.bind();
     }
     bind(){
@@ -16,12 +21,9 @@ class Interests{
                 option.classList.remove("selected")
             })
         });
-        this.sentFormulary.addEventListener("click", e =>{ 
-            e.preventDefault();
-
-
-
-        });
+        // this.sentFormulary.addEventListener("click", e =>{ 
+        //     e.preventDefault();
+        // });
         
         // this.checkBoxes.forEach(checkbox => {
         //     checkbox.addEventListener("click", ()=>{

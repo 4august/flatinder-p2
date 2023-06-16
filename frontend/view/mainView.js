@@ -5,7 +5,7 @@ class mainView{
 
     template(){
         return `
-        <div class="col-4 device main">
+        <div class="col-12 col-md-4 device main">
 
             <!-- <div class="d-flex">
                 <img class="icon-title" src="imagens/arrow-left.svg" alt="">
@@ -30,10 +30,7 @@ class mainView{
                 </div>
             </div>
 
-            <div class="navigation d-flex justify-content-between">
-                <img src="imagens/cards.svg" alt="">
-                <img src="imagens/indicator.svg" alt="">
-                <img src="imagens/people.svg" alt="">
+            <div class="navigation">
             </div>
         </div>
         `

@@ -138,11 +138,9 @@ svg {
 
 .matches {
     position: relative;
-    border: 1px solid;
 }
 
-.matches .navigation,
-.main .navigation {
+.navigation {
     position: absolute;
     bottom: 0;
     left: calc(0% - 0px);

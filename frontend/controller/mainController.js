@@ -3,11 +3,14 @@ class MainController{
         this.init();
     }
     init(){
-        this.container_main = document.querySelector(".container-main");
+        this.container_main = document.querySelector(".container-main .row");
+        this.container_main.innerHTML = new mainView().template();
 
-        this.viewMatchesList = MatchesView();
-        this.viewMain = mainView();
-        this.viewMatch = MatchView();
+
+        // this.viewMatchesList = new MatchesView();
+        // this.viewMain = new mainView();
+        // this.viewMatch = new MatchView();
+
     }
 }
 
