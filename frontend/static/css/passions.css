@@ -1,0 +1,97 @@
+#seus-interesses {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+}
+
+#seus-interesses .area-conteudo {
+    width: 380px;
+    height: 812px;
+    background-color: white;
+    padding: 40px;
+}
+
+#seus-interesses .area-conteudo .botao-sair {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#seus-interesses .area-conteudo .botao-sair .voltar {
+    padding: 14px 21px;
+    border: 1px solid #E8E6EA;
+    border-radius: 15px;
+}
+
+#seus-interesses .area-conteudo .botao-sair .voltar svg {
+    font-size: 21px;
+    color: #E94057;
+    font-weight: bold;
+}
+
+#seus-interesses .area-conteudo h5 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 34px;
+    font-weight: 700;
+}
+
+#seus-interesses .area-conteudo p {
+    text-align: justify;
+    margin: 0px;
+}
+
+#seus-interesses .interesses-usuario .botao-camera .botao-padrao {
+    padding: 5px;
+    border-radius: 20px;
+    width: 33px;
+}
+
+#seus-interesses .interesses-usuario .opcoes-interesse {
+    margin-top: 32px;
+    margin-bottom: 60px;
+}
+
+#seus-interesses .interesses-usuario .opcoes-interesse .opcao-selecao {
+    display: flex;
+    align-items: center;
+    font-family: 'Roboto', sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    width: 100%;
+    text-align: left;
+    background-color: #FFFFFF;
+    padding: 12px;
+    border: 1px solid #E8E6EA;
+    border-radius: 15px;
+    margin-bottom: 10px;
+    transition: .1s ease;
+}
+
+#seus-interesses .interesses-usuario .opcoes-interesse .opcao-selecao svg{
+    color: #E94057;
+    font-size: 18px;
+    padding-right: 10px;
+}
+
+#seus-interesses .interesses-usuario .opcoes-interesse .active, #seus-interesses .interesses-usuario .opcoes-interesse .opcao-selecao:hover {
+    background-color: #E94057;
+    color: #FFFFFF;
+    transition: .1s ease;
+}
+
+#seus-interesses .interesses-usuario .opcoes-interesse .active, #seus-interesses .interesses-usuario .opcoes-interesse svg:hover{
+    color: white;
+}
+
+#seus-interesses .area-conteudo .botao-acao {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#seus-interesses .area-conteudo .botao-acao .botao-padrao {
+    width: 80%;
+    font-size: 16px;
+}
