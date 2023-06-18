@@ -1,37 +1,40 @@
-class Interests{
-    constructor(){
-        
+class InterestsController {
+    constructor() {
         this.init();
     }
-    init(){
-        this.interests = document.querySelectorAll(".option");
+    init() {
+        this.container = document.querySelector(".container .row");
+        this.container.innerHTML = new InterestsView().template();
+
+        this.goToWhoAmI = document.querySelector("#whoAmI");
+
         this.checkBoxes = document.querySelectorAll(".option-checkbox");
         this.sentFormulary = document.querySelector(".form button");
-        
+        this.formInterests = {};
         this.bind();
     }
-    bind(){
-        this.interests.forEach((option, i) => {
-            option.addEventListener("click", () =>{
-                if(this.checkBoxes[i].checked == true){
-                    option.classList.add("selected");
-                    return this.checkBoxes[i].checked = true
-                }
-                else
-                option.classList.remove("selected")
-            })
+    bind() {
+        this.goToWhoAmI.addEventListener("click", ()=>{
+            new Router().goToWhoAmI();    
+            console.log("ir pra etapa 2")      
         });
-        // this.sentFormulary.addEventListener("click", e =>{ 
-        //     e.preventDefault();
-        // });
         
-        // this.checkBoxes.forEach(checkbox => {
-        //     checkbox.addEventListener("click", ()=>{
-        //         console.log(checkbox.checked)
+        this.checkBoxes.forEach((checkbox) => {
+            checkbox.addEventListener("click", () => {
+                if (checkbox.checked) {
+                    checkbox.classList.add("selected");
+                    this.formInterests[checkbox.value] = checkbox.checked;
+                } else {
+                    checkbox.classList.remove("selected");
+                    delete this.formInterests[checkbox.value];
+                }
+            })
 
-        //     })
-        // })
+        })
+        this.sentFormulary.addEventListener("click", e => {
+            e.preventDefault();
+        });
     }
 }
 
-let interests = new Interests();
+let interests = new InterestsController();

@@ -12,6 +12,18 @@ class Router{
             profile: {
                 path: "/profile",
                 controller: "ProfileController"
+            },
+            profileDetails: {
+                path: "/cadaster/profileDetails",
+                controller: "ProfileDetailsController"
+            },
+            whoAmI: {
+                path: "/cadaster/whoAmI",
+                controller: "WhoAmIController"
+            },
+            interests: {
+                path: "/cadaster/interests",
+                controller: "InterestsController"
             }
         }
     }
@@ -23,6 +35,15 @@ class Router{
     }
     goToProfile(){
         this.goTo(this.routes.profile)
+    }    
+    goToProfileDetails(){
+        this.goTo(this.routes.profileDetails)
+    }
+    goToWhoAmI(){
+        this.goTo(this.routes.whoAmI)
+    }
+    goToInterests(){
+        this.goTo(this.routes.interests)
     }
     goTo(rota){
         eval(`new ${rota.controller}();`)

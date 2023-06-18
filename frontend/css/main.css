@@ -64,36 +64,33 @@ svg {
     margin: 6px 0;
 }
 
-.interests .selected {
-    background: #E94057!important;
-    box-shadow: 0px 15px 15px rgba(233, 64, 87, 0.2)!important;
+.interests .selected ~ label{
+    background: #E94057 !important;
+    box-shadow: 0px 15px 15px rgba(233, 64, 87, 0.2) !important;
     border-radius: 15px;
     padding: 12px 10px;
     align-items: center;
     display: flex;
-    color: #FFFFFF!important;
+    color: #FFFFFF !important;
 }
 
 
 
-.interests .option {
+.interests .option-checkbox ~ label {
     border: 1px solid #E8E6EA;
     border-radius: 15px;
     padding: 12px 10px;
     align-items: center;
     display: flex;
-}
-
-.interests .option img {
-    margin-right: 8px;
-}
-
-.interests .option {
     margin: 0;
     font-weight: 400;
     font-size: 14px;
     line-height: 21px;
     color: #000000;
+}
+
+.interests .option-checkbox   ~ label > img {
+    margin-right: 8px;
 }
 
 .interests .form button,
@@ -110,7 +107,7 @@ svg {
 
 .whoAmI .form button {
     position: absolute;
-    bottom: 0;
+    bottom: calc(0% + 28px);
     left: calc(0% - 0px);
 }
 
@@ -120,14 +117,22 @@ svg {
     position: relative;
 }
 
-.whoAmI .sex-option {
+.whoAmI .sex-option{
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-radius: 15px;
-    padding: 0 16px;
+    padding: 0;
     border: 1px solid #E8E6EA;
     margin: 4px 0;
+}
+.whoAmI .sex-option input{display: none;}
+.whoAmI .sex-option input:checked ~ label{
+    background-color: #E94057!important;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 15px;
+
 }
 
 .whoAmI .sex-option label {
@@ -136,6 +141,24 @@ svg {
     padding-left: 8px;
 }
 
+.whoAmI .alert-error{
+    position: absolute;
+    top: 8rem;
+    background: red;
+    padding: 12px;
+
+}
+.whoAmI .alert-error h5{
+    color: #fff;
+    margin: 0;
+    font-weight: 700;
+}
+.whoAmI .alert-error span{
+    display: flex;
+    justify-content: end;
+    color: #FFFFFF;
+    font-weight: 900;
+}
 .matches {
     position: relative;
 }
@@ -170,10 +193,12 @@ svg {
 .matches .match-list .info {
     background-repeat: no-repeat;
     background-size: contain;
+    background-position: center;
     align-items: end;
     display: grid;
     position: relative;
-    height: 100%;
+    height: 250px;
+    border-radius: 15px;
 }
 
 .matches .match-list .match h5,
@@ -314,7 +339,8 @@ svg {
     height: 36px;
     width: 42px;
 }
-.onboarding{
+
+.onboarding {
     position: relative;
 }
 
@@ -343,16 +369,25 @@ svg {
     margin: 20px 0;
     width: 100%;
 }
+
 .onboarding .footer {
     position: absolute;
     bottom: 0;
     left: calc(0% - 0px);
     width: 100%;
-    padding: 0 40px 44px 40px ;
+    padding: 0 40px 44px 40px;
 }
-.onboarding .footer h6{
+
+.onboarding .footer h6 {
     text-align: center;
 }
+
+.active-page path,
+.active-page rect {
+    fill: #E94057!important;
+    display: none;
+}
+
 @media (max-width: 1024px) {
     h1 {
         font-size: 30px;
