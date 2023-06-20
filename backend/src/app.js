@@ -9,11 +9,14 @@ const app = express()
 const router = express.Router();
 
 // conecta no banco
-mongoose.connect('mongodb+srv://emanuelibanhescontato:rJsOj64zUNXByQNG@cluster0.nzrr5rk.mongodb.net/')
+mongoose.connect('mongodb+srv://emanuelibanhescontato:rJsOj64zUNXByQNG@cluster0.nzrr5rk.mongodb.net/?retryWrites=true&w=majority')
 
 // carrega as rotas
 const index = require('./routes/index');
 const userRoute = require('./routes/user-route');
+
+// models
+const User = require('./models/user-model')
 
 app.use(bodyParser.json()); //converte para json
 app.use(bodyParser.urlencoded({ extended: false }));
