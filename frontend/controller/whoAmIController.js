@@ -1,8 +1,8 @@
-class WhoAmIController{
-    constructor(){
+class WhoAmIController {
+    constructor() {
         this.init();
     }
-    init(){
+    init() {
         this.container = document.querySelector(".container .row");
         this.container.innerHTML = new WhoAmIView().template();
 
@@ -11,28 +11,28 @@ class WhoAmIController{
 
         this.goToProfileDetails = document.querySelector("#profileDetails");
         this.goToInterests = document.querySelector("#interests")
-        
+
         this.checkBoxes = document.getElementsByName("sex");
         this.form = document.querySelector("form");
         this.sentFormulary = document.querySelector(".form button");
-    
+
         this.formSex = {};
 
         this.bind();
     }
-    bind(){
-        this.goToProfileDetails.addEventListener("click", ()=>{
+    bind() {
+        this.goToProfileDetails.addEventListener("click", () => {
             new Router().goToProfileDetails();
             console.log("cliquei nessa merda")
         })
 
-        this.goToInterests.addEventListener("click", ()=>{
-            new Router().goToInterests();     
-            console.log("ir pra etapa 3")           
+        this.goToInterests.addEventListener("click", () => {
+            new Router().goToInterests();
+            console.log("ir pra etapa 3")
         });
 
         this.checkBoxes.forEach((checkbox, i) => {
-            checkbox.addEventListener("click", ()=> {
+            checkbox.addEventListener("click", () => {
                 if (!checkbox.checked) {
                     delete this.formSex[checkbox.value];
                 } else {
@@ -47,15 +47,15 @@ class WhoAmIController{
             if (Object.keys(this.formSex).length === 0) {
                 alert("po irmao preenche o bagulho");
                 this.device.innerHTML += new AlertErrorView().template()
-                
-                document.querySelector(".alert-error span").addEventListener("click", ()=>{
+
+                document.querySelector(".alert-error span").addEventListener("click", () => {
                     this.alertError.classList.remove("d-grid");
                     this.alertError.classList.add("d-none");
                 })
-            }else{
+            } else {
                 fetch("http://localhost:3000/cadaster/whoAmI", {
                     method: "POST",
-                    headers: {"Content-Type": "application/json"},
+                    headers: { "Content-Type": "application/json" },
                     body: JSON.stringify(this.formSex)
                 });
                 new Router().goToInterests();

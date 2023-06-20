@@ -64,6 +64,8 @@ svg {
     margin: 6px 0;
 }
 
+
+
 .interests .selected ~ label{
     background: #E94057 !important;
     box-shadow: 0px 15px 15px rgba(233, 64, 87, 0.2) !important;
@@ -103,6 +105,7 @@ svg {
     font-size: 16px;
     font-weight: 700;
     margin-top: 40px;
+    width: 100%;
 }
 
 .whoAmI .form button {
@@ -399,9 +402,22 @@ svg {
     }
 }
 
+@media (max-width: 992px){
+    .interests .options {
+        height: 400px;
+        overflow-x: auto;
+    }
+}
+
 @media (max-width: 768px) {
     .matches .match-list .info {
         width: 50%;
         margin: auto;
     }
+    .container-main{min-height: unset;}
 }
+/* @media (max-height: 811px){
+    .navigation{
+        position: fixed;
+    }
+} */

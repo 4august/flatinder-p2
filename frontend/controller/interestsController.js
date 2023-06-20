@@ -7,11 +7,11 @@ class InterestsController {
         this.container.innerHTML = new InterestsView().template();
 
         this.goToWhoAmI = document.querySelector("#whoAmI");
-        this.testeee= document.querySelector("[name= 'ingredientes[]']")
+
         this.checkBoxes = document.querySelectorAll("[name='interests[]']");
         this.sentFormulary = document.querySelector(".form button");
         this.formInterests = [];
-        let formmm = {}
+
         this.bind();
     }
     bind() {
@@ -49,6 +49,7 @@ class InterestsController {
                     headers: {"Content-Type": "application/json"},
                     body: JSON.stringify(obj)
                 });
+                new Router().goToMain()
                 console.log("informação enviada", obj)
             }
         });

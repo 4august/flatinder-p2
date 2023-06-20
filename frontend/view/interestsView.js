@@ -17,7 +17,7 @@ class InterestsView{
             </h6>
                 
             <form class="form" action="">
-                <div class="row">
+                <div class="row options">
                     <div class="col-12 col-lg-6 interest">
                         <input class="d-none option-checkbox" type="checkbox" name="interests[]" value="photography" id="photography">
                         <label for="photography">
@@ -105,8 +105,8 @@ class InterestsView{
                             <img src="imagens/game-handle.svg" alt="">
                             Video Games
                     </div>
-                    <button>Continue</button>
                 </div>
+                <button>Continue</button>
             </form>
         </div>
         `
