@@ -44,6 +44,7 @@ exports.post = async (req, res, next) => {
         });
     }
 };
+// metodo de autenticação
 exports.authenticate = async (req, res, next) => {
     try {
         const user = await repository.authenticate({
