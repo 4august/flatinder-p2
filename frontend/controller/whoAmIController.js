@@ -36,8 +36,7 @@ class WhoAmIController{
                 if (!checkbox.checked) {
                     delete this.formSex[checkbox.value];
                 } else {
-                    this.formSex[checkbox.value] = checkbox.checked;
-                    
+                    this.formSex["sex"] = checkbox.value;
                 }
                 console.log(checkbox.value, checkbox.checked)
                 console.log(this.checkBoxes)
@@ -53,8 +52,17 @@ class WhoAmIController{
                     this.alertError.classList.remove("d-grid");
                     this.alertError.classList.add("d-none");
                 })
+            }else{
+                fetch("http://localhost:3000/cadaster/whoAmI", {
+                    method: "POST",
+                    headers: {"Content-Type": "application/json"},
+                    body: JSON.stringify(this.formSex)
+                });
+                new Router().goToInterests();
+                console.log("informação enviada", this.formSex)
             }
         });
+
     }
 }
 let whoAmI = new WhoAmIController();

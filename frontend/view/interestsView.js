@@ -15,7 +15,7 @@ class InterestsView{
             <h6>
                 Select a few of your interests and let everyone know what you’re h6assionate about.
             </h6>
-
+                
             <form class="form" action="">
                 <div class="row">
                     <div class="col-12 col-lg-6 interest">
