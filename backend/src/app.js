@@ -3,13 +3,13 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
-
+const config = require('./config')
 // instância do express
 const app = express()
 const router = express.Router();
 
 // conecta no banco
-mongoose.connect('mongodb+srv://emanuelibanhescontato:rJsOj64zUNXByQNG@cluster0.nzrr5rk.mongodb.net/?retryWrites=true&w=majority')
+mongoose.connect(config.connectionString)
 
 // carrega as rotas
 const index = require('./routes/index');
