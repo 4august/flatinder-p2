@@ -3,10 +3,11 @@
 const mongoose = require('mongoose');
 const User = require('../models/user-model');
 
-exports.get = async () => {
-    const res = await User.find({
-        active: true
-    }, 'first_name last_name email password');
+exports.authenticate = async (data) => {
+    const res = await User.findOne({ // pega uma informação
+        email: data.email, 
+        password: data.password
+    });
     return res;
 }
 

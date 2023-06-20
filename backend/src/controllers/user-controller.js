@@ -4,6 +4,7 @@ const ValidationContract = require('../validators/fluent-validator');
 const repository = require('../respositories/user-repository');
 const User = require('../models/user-model');
 const md5 = require('md5');
+const authService = require('../services/auth-service')
 
 const emailService = require('../services/email-service');
 
@@ -33,9 +34,46 @@ exports.post = async (req, res, next) => {
             global.EMAIL_TMPL.replace('{0}', req.body.first_name)
         );
 
-        return res.status(201).send({
+        res.status(201).send({
             message: 'Usuário cadastrado com sucesso!'
         });
+    } catch (error) {
+        console.error(error);
+        return res.status(500).send({
+            message: 'Falha ao processar sua requisição'
+        });
+    }
+};
+exports.authenticate = async (req, res, next) => {
+    try {
+        const user = await repository.authenticate({
+            email: req.body.email,
+            password: md5(req.body.password + global.SALT_KEY) //encriptação de senha
+        });
+
+        if(!user){
+            res.status(404).send({message: 'Usuário ou senha inválidos'});
+            return
+        }
+
+        const token = await authService.generateToken({
+            first_name: user.first_name,
+            last_name: user.last_name,
+            email: user.email
+        })
+
+        res.status(201).send({
+            token: token,
+            data: {
+                first_name: user.first_name,
+                last_name: user.last_name,
+                email: user.email
+            },
+            message: 'Usuário autenticado'
+        });
+
+
+
     } catch (error) {
         console.error(error);
         return res.status(500).send({

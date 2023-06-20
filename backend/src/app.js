@@ -22,8 +22,8 @@ app.use(bodyParser.json()); //converte para json
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use('/', index);
-app.use('/cadastro-usuario', userRoute)
-app.use('/atualiza', userRoute)
-app.use('/deleta', userRoute)
+app.use('/user', userRoute)
+// app.use('/atualiza', userRoute)
+// app.use('/deleta', userRoute)
 
 module.exports = app;
