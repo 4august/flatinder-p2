@@ -3,6 +3,6 @@ global.EMAIL_TMPL = 'Olá, <strong>{0}</strong>, seja bem vindo ao Tinder';
 
 module.exports = {
     connectionString: 'mongodb+srv://emanuelibanhescontato:rJsOj64zUNXByQNG@cluster0.nzrr5rk.mongodb.net/?retryWrites=true&w=majority',
-    sendgridKey: 'TESTE',
+    sendgridKey: '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',
     containerConnectionString: 'TESTE'
 }

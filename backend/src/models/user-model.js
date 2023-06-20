@@ -14,6 +14,11 @@ const schema = new Schema({
         required: [true, 'É preciso preencher os campos'],
         trim: true
     },
+    image: {
+        type: String,
+        required: [true, 'É preciso preencher imagem'],
+        trim: true
+    },
     email: {
         type: String,
         required: [true, 'É preciso preencher os campos'],
