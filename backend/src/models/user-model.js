@@ -19,11 +19,30 @@ const schema = new Schema({
         required: [true, 'É preciso preencher os campos'],
         trim: true
     },
+    date_birthday: {
+        type: Date,
+        required: [true, 'É preciso preencher o campo de aniversario'],
+        trim: true
+    },
     password: {
         type: String,
         required: [true, 'É preciso preencher os campos'],
         trim: true
-    }
+    },
+    gender: {
+        type: String,
+        required: [true, 'É preciso preencher o seu genero'],
+        trim: true
+    },
+    interests: [{
+        type: String,
+        required: [true, 'É preciso preencher o seu interesse'],
+        trim: true
+    }],
+    likes: [{
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+    }]
 });
 
 module.exports = mongoose.model('User', schema);
