@@ -46,12 +46,6 @@ class WhoAmIController {
             e.preventDefault();
             if (Object.keys(this.sex).length === 0) {
                 alert("po irmao preenche o bagulho");
-                /*this.device.innerHTML += new AlertErrorView().template()
-
-                document.querySelector(".alert-error span").addEventListener("click", () => {
-                    this.alertError.classList.remove("d-grid");
-                    this.alertError.classList.add("d-none");
-                })*/
             } else {
                 /*fetch("http://localhost:3000/cadaster/whoAmI", {
                     method: "POST",
@@ -61,7 +55,7 @@ class WhoAmIController {
                 */
                sessionStorage.setItem("sex", this.sex);
                new Router().goToInterests();
-                console.log("informação enviada", this.sex)
+               console.log("informação enviada", this.sex)
             }
         });
 

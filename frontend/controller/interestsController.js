@@ -17,7 +17,6 @@ class InterestsController {
     bind() {
         this.goToWhoAmI.addEventListener("click", ()=>{
             new Router().goToWhoAmI();    
-            console.log("ir pra etapa 2")      
         });
         
         this.checkBoxes.forEach((checkbox, i) => {
@@ -30,30 +29,20 @@ class InterestsController {
                     delete this.interests[checkbox.value];
                 }
             })
-
         })
         
         this.sentFormulary.addEventListener("click", e => {
             e.preventDefault();
-
-            /*let obj = {
-                interests : this.interests.join(', ')
-            }*/
-
             if (Object.keys(this.interests).length === 0) {
                 console.log(this.interests)
-                alert("po irmao preenche o bagulho");
+                alert("preencha os campos corretamente");
             }else{
-                /*
-                
-                */
                 sessionStorage.setItem("interests", this.interests);
 
                 let form = {
                     sex : sessionStorage.getItem("sex"),
                     interests : sessionStorage.getItem("interests")
                 }
-                console.log(form);
 
                 fetch("http://localhost:3000/cadaster", {
                     method: "POST",
@@ -61,8 +50,7 @@ class InterestsController {
                     body: JSON.stringify(form)
                 });
 
-                //new Router().goToMain()
-                console.log("informação enviada", this.interests)
+                new Router().goToMain()
             }
         });
     }

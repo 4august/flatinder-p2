@@ -60,13 +60,45 @@ svg {
     padding: 44px 40px;
 }
 
+
+.profile-details .profile-image {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    padding: 91px 0px 53px 0px;
+}
+
+.profile-details .profile-image button {
+    position: absolute;
+    display: inline;
+    right: 90px;
+    bottom: 53px;
+
+    padding: 5px;
+    border-radius: 20px;
+    width: 33px;
+}
+
+.profile-details .form {
+    position: relative;
+    min-height: 500px;
+}
+
+.profile-details .form input {
+    margin-bottom: 12px;
+}
+
+.profile-details .form button {
+    position: absolute;
+    bottom: 0;
+    left: calc(0% - 0px);
+}
+
 .interest {
     margin: 6px 0;
 }
 
-
-
-.interests .selected ~ label{
+.interests .selected~label {
     background: #E94057 !important;
     box-shadow: 0px 15px 15px rgba(233, 64, 87, 0.2) !important;
     border-radius: 15px;
@@ -78,7 +110,7 @@ svg {
 
 
 
-.interests .option-checkbox ~ label {
+.interests .option-checkbox~label {
     border: 1px solid #E8E6EA;
     border-radius: 15px;
     padding: 12px 10px;
@@ -91,10 +123,11 @@ svg {
     color: #000000;
 }
 
-.interests .option-checkbox   ~ label > img {
+.interests .option-checkbox~label>img {
     margin-right: 8px;
 }
 
+.profile-details .form button,
 .interests .form button,
 .whoAmI .form button {
     background-color: #E94057;
@@ -120,7 +153,7 @@ svg {
     position: relative;
 }
 
-.whoAmI .sex-option{
+.whoAmI .sex-option {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -129,9 +162,13 @@ svg {
     border: 1px solid #E8E6EA;
     margin: 4px 0;
 }
-.whoAmI .sex-option input{display: none;}
-.whoAmI .sex-option input:checked ~ label{
-    background-color: #E94057!important;
+
+.whoAmI .sex-option input {
+    display: none;
+}
+
+.whoAmI .sex-option input:checked~label {
+    background-color: #E94057 !important;
     color: #FFFFFF;
     border: none;
     border-radius: 15px;
@@ -144,24 +181,27 @@ svg {
     padding-left: 8px;
 }
 
-.whoAmI .alert-error{
+.whoAmI .alert-error {
     position: absolute;
     top: 8rem;
     background: red;
     padding: 12px;
 
 }
-.whoAmI .alert-error h5{
+
+.whoAmI .alert-error h5 {
     color: #fff;
     margin: 0;
     font-weight: 700;
 }
-.whoAmI .alert-error span{
+
+.whoAmI .alert-error span {
     display: flex;
     justify-content: end;
     color: #FFFFFF;
     font-weight: 900;
 }
+
 .matches {
     position: relative;
 }
@@ -387,7 +427,7 @@ svg {
 
 .active-page path,
 .active-page rect {
-    fill: #E94057!important;
+    fill: #E94057 !important;
     display: none;
 }
 
@@ -402,7 +442,7 @@ svg {
     }
 }
 
-@media (max-width: 992px){
+@media (max-width: 992px) {
     .interests .options {
         height: 400px;
         overflow-x: auto;
@@ -414,8 +454,12 @@ svg {
         width: 50%;
         margin: auto;
     }
-    .container-main{min-height: unset;}
+
+    .container-main {
+        min-height: unset;
+    }
 }
+
 /* @media (max-height: 811px){
     .navigation{
         position: fixed;
