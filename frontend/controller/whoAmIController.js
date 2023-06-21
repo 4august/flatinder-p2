@@ -16,7 +16,7 @@ class WhoAmIController {
         this.form = document.querySelector("form");
         this.sentFormulary = document.querySelector(".form button");
 
-        this.formSex = {};
+        this.sex = {};
 
         this.bind();
     }
@@ -34,9 +34,9 @@ class WhoAmIController {
         this.checkBoxes.forEach((checkbox, i) => {
             checkbox.addEventListener("click", () => {
                 if (!checkbox.checked) {
-                    delete this.formSex[checkbox.value];
+                    delete this.sex[checkbox.value];
                 } else {
-                    this.formSex["sex"] = checkbox.value;
+                    this.sex = checkbox.value;
                 }
                 console.log(checkbox.value, checkbox.checked)
                 console.log(this.checkBoxes)
@@ -44,22 +44,24 @@ class WhoAmIController {
         });
         this.sentFormulary.addEventListener("click", e => {
             e.preventDefault();
-            if (Object.keys(this.formSex).length === 0) {
+            if (Object.keys(this.sex).length === 0) {
                 alert("po irmao preenche o bagulho");
-                this.device.innerHTML += new AlertErrorView().template()
+                /*this.device.innerHTML += new AlertErrorView().template()
 
                 document.querySelector(".alert-error span").addEventListener("click", () => {
                     this.alertError.classList.remove("d-grid");
                     this.alertError.classList.add("d-none");
-                })
+                })*/
             } else {
-                fetch("http://localhost:3000/cadaster/whoAmI", {
+                /*fetch("http://localhost:3000/cadaster/whoAmI", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify(this.formSex)
+                    body: JSON.stringify(this.sex)
                 });
-                new Router().goToInterests();
-                console.log("informação enviada", this.formSex)
+                */
+               sessionStorage.setItem("sex", this.sex);
+               new Router().goToInterests();
+                console.log("informação enviada", this.sex)
             }
         });
 

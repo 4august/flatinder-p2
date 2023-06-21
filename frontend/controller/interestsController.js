@@ -10,7 +10,7 @@ class InterestsController {
 
         this.checkBoxes = document.querySelectorAll("[name='interests[]']");
         this.sentFormulary = document.querySelector(".form button");
-        this.formInterests = [];
+        this.interests = [];
 
         this.bind();
     }
@@ -24,10 +24,10 @@ class InterestsController {
             checkbox.addEventListener("click", () => {
                 if (checkbox.checked) {
                     checkbox.classList.add("selected");
-                    this.formInterests.push(checkbox.value)
+                    this.interests.push(checkbox.value)
                 } else {
                     checkbox.classList.remove("selected");
-                    delete this.formInterests[checkbox.value];
+                    delete this.interests[checkbox.value];
                 }
             })
 
@@ -36,21 +36,33 @@ class InterestsController {
         this.sentFormulary.addEventListener("click", e => {
             e.preventDefault();
 
-            let obj = {
-                interests : this.formInterests.join(', ')
-            }
+            /*let obj = {
+                interests : this.interests.join(', ')
+            }*/
 
-            if (Object.keys(this.formInterests).length === 0) {
-                console.log(this.formInterests)
+            if (Object.keys(this.interests).length === 0) {
+                console.log(this.interests)
                 alert("po irmao preenche o bagulho");
             }else{
-                fetch("http://localhost:3000/cadaster/interests", {
+                /*
+                
+                */
+                sessionStorage.setItem("interests", this.interests);
+
+                let form = {
+                    sex : sessionStorage.getItem("sex"),
+                    interests : sessionStorage.getItem("interests")
+                }
+                console.log(form);
+
+                fetch("http://localhost:3000/cadaster", {
                     method: "POST",
                     headers: {"Content-Type": "application/json"},
-                    body: JSON.stringify(obj)
+                    body: JSON.stringify(form)
                 });
-                new Router().goToMain()
-                console.log("informação enviada", obj)
+
+                //new Router().goToMain()
+                console.log("informação enviada", this.interests)
             }
         });
     }
