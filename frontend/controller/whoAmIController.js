@@ -23,12 +23,10 @@ class WhoAmIController {
     bind() {
         this.goToProfileDetails.addEventListener("click", () => {
             new Router().goToProfileDetails();
-            console.log("cliquei nessa merda")
         })
 
         this.goToInterests.addEventListener("click", () => {
             new Router().goToInterests();
-            console.log("ir pra etapa 3")
         });
 
         this.checkBoxes.forEach((checkbox, i) => {
@@ -47,18 +45,11 @@ class WhoAmIController {
             if (Object.keys(this.sex).length === 0) {
                 alert("po irmao preenche o bagulho");
             } else {
-                /*fetch("http://localhost:3000/cadaster/whoAmI", {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify(this.sex)
-                });
-                */
                sessionStorage.setItem("sex", this.sex);
                new Router().goToInterests();
-               console.log("informação enviada", this.sex)
+                console.log("informação enviada", this.sex)
             }
         });
-
     }
 }
 let whoAmI = new WhoAmIController();

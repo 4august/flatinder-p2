@@ -9,7 +9,7 @@ class ProfileDetailsController {
         this.goToWhoAmI = document.querySelector("#whoAmI");
 
         this.avatarPreview = document.querySelector(".profile-image img");
-        this.avatarString = document.querySelector(".avatarString")
+        this.imgString;
         this.chooseImage = document.querySelector("#image");
 
         this.firstName = document.querySelector("#first-name");
@@ -29,8 +29,16 @@ class ProfileDetailsController {
             console.log("ir pra etapa 2")
         });
         console.log(this.chooseImage)
-        this.chooseImage.addEventListener("click", () => {
+        this.chooseImage.addEventListener("change", () => {
             alert("vou escolher uma imagem pra por");
+            const newImage = new FileReader();
+
+             newImage.addEventListener("load", ()=>{
+                console.log(newImage.result);
+                this.imgString = newImage.result
+                
+            })
+            newImage.readAsDataURL(this.chooseImage.files[0])
             this.showPreviewImage();
 
         });
@@ -39,25 +47,11 @@ class ProfileDetailsController {
             this.createUser();
         });
     }
-    toDataURL(src){
-        var image = new Image();
-        image.crossOrigin = 'Anonymous';
-        image.onload = function(){
-           var canvas = document.createElement('canvas');
-           var context = canvas.getContext('2d');
-           canvas.height = this.naturalHeight;
-           canvas.width = this.naturalWidth;
-           context.drawImage(this, 0, 0);           
-        };
-        image.src = src;
-     }
+    convertImgToURL(){
+        
+    }
     createUser() {
-        let renderImage = new FileReader();
-        renderImage.onload = (e) =>  {
-            this.avatarString.src = this.chooseImage.files[0];
-        }
         this.obj = {
-            "profile_image": this.avatarString.src,
             "first_name": this.firstName.value,
             "last_name": this.lastName.value,
             "birthday_date": this.birthDayDate.value
@@ -67,7 +61,12 @@ class ProfileDetailsController {
         this.formData.append("last_name", this.lastName.value)
         this.formData.append("birthday_date", this.birthDayDate.value)
 
-        sessionStorage.setItem("user", JSON.stringify(this.obj));
+        localStorage.setItem("user", JSON.stringify(this.obj));
+        this.objIMg = {
+            "img": this.imgString
+        }
+        localStorage.setItem("profile_image", JSON.stringify(this.objIMg ))
+
         console.log(this.obj);
     }
     showPreviewImage() {
