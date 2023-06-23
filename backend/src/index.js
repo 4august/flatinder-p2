@@ -23,44 +23,31 @@ let setup = async () => {
 
         app.use(cors());
 
-        app.post("/cadaster/whoAmI", async (req, res) => {
-            const { sex } = req.body;
-
-            const newForm = await formSex.create({ sex })
-
-            res.send(newForm);
-        });
-        app.get("/cadaster/whoAmI", async (req, res) => {
-            const sex = await formSex.find({});
-
-            res.send(sex)
-        });
-
-        app.post("/cadaster/interests", async (req, res) => {
-            const { interests } = req.body;
-
-            const newForm = await formInterests.create({ interests })
-
-            res.send(newForm);
-        });
-        app.get("/cadaster/interests", async (req, res) => {
-            const interests = await formInterests.find({});
-
-            res.send(interests)
-        });
-
-
         app.post("/cadaster", async (req, res) => {
-            const {sex, interests } = req.body;
+            const {
+                image_profile,
+                first_name,
+                last_name,
+                date_birth,
+                sex,
+                interests 
+            } = req.body;
 
-            const newForm = await finalForm.create({sex, interests })
+            const newForm = await finalForm.create({
+                image_profile,
+                first_name,
+                last_name,
+                date_birth,
+                sex,
+                interests 
+            });
 
             res.send(newForm);
         });
         app.get("/cadaster", async (req, res) => {
-            const interests = await finalForm.find({});
+            const user = await finalForm.find({});
 
-            res.send(interests)
+            res.send(user)
         });
 
 

@@ -34,16 +34,20 @@ class InterestsController {
         this.sentFormulary.addEventListener("click", e => {
             e.preventDefault();
             if (Object.keys(this.interests).length === 0) {
-                console.log(this.interests)
                 alert("preencha os campos corretamente");
             }else{
-                sessionStorage.setItem("interests", this.interests);
-
+                let joinedInterests =  this.interests.join(", ")
+                localStorage.setItem("interests", JSON.stringify(joinedInterests));
+                
                 let form = {
-                    sex : sessionStorage.getItem("sex"),
-                    interests : sessionStorage.getItem("interests")
+                    image_profile: localStorage.getItem("profile_image"),
+                    first_name : localStorage.getItem("first_name"),
+                    last_name : localStorage.getItem("last_name"),
+                    date_birth : localStorage.getItem("date_birth"),
+                    sex : localStorage.getItem("sex"),
+                    interests : localStorage.getItem("interests")
                 }
-
+                console.log(form)
                 fetch("http://localhost:3000/cadaster", {
                     method: "POST",
                     headers: {"Content-Type": "application/json"},

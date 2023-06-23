@@ -207,10 +207,6 @@ svg {
     font-weight: 700;
 }
 
-/* .matches .match-list .match .undo-match{
-    background: url(pexels-tomaz-barcellos-1987301);
-    filter: blur(12px);
-} */
 .matches .match-list .match img {
     left: calc(50% - 15px);
 }

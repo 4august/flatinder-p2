@@ -45,7 +45,7 @@ class WhoAmIController {
             if (Object.keys(this.sex).length === 0) {
                 alert("po irmao preenche o bagulho");
             } else {
-               sessionStorage.setItem("sex", this.sex);
+               localStorage.setItem("sex", this.sex);
                new Router().goToInterests();
                 console.log("informação enviada", this.sex)
             }

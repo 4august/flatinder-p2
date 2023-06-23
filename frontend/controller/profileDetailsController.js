@@ -45,6 +45,8 @@ class ProfileDetailsController {
         this.sendFormulary.addEventListener("click", (e) => {
             e.preventDefault();
             this.createUser();
+            new Router().goToWhoAmI();
+
         });
     }
     convertImgToURL(){
@@ -56,18 +58,17 @@ class ProfileDetailsController {
             "last_name": this.lastName.value,
             "birthday_date": this.birthDayDate.value
         }
-        this.formData.append("profile_image", this.chooseImage.files[0])
-        this.formData.append("first_name", this.firstName.value)
-        this.formData.append("last_name", this.lastName.value)
-        this.formData.append("birthday_date", this.birthDayDate.value)
-
-        localStorage.setItem("user", JSON.stringify(this.obj));
         this.objIMg = {
             "img": this.imgString
         }
-        localStorage.setItem("profile_image", JSON.stringify(this.objIMg ))
 
-        console.log(this.obj);
+        localStorage.setItem("profile_image",this.imgString)
+        localStorage.setItem("first_name", this.firstName.value);
+        localStorage.setItem("last_name", this.lastName.value);
+        localStorage.setItem("date_birth", this.birthDayDate.value)
+
+
+        console.log(this.obj, this.objIMg);
     }
     showPreviewImage() {
         if (this.chooseImage.files && this.chooseImage.files[0]) {
