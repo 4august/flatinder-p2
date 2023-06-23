@@ -22,8 +22,9 @@ exports.post = async (req, res, next) => {
     if (!contract.isValid()) {
       return res.status(400).send(contract.errors());
     }
-    
+
     await repository.create({
+      photo: req.body.photo,
       first_name: req.body.first_name,
       last_name: req.body.last_name,
       email: req.body.email,
@@ -63,6 +64,7 @@ exports.authenticate = async (req, res, next) => {
     }
 
     const token = await authService.generateToken({
+      photo: user.photo,
       first_name: user.first_name,
       last_name: user.last_name,
       email: user.email,
