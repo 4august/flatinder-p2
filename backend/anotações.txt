@@ -1,0 +1,9 @@
+npm init -> inicia uma aplicação node
+
+basico para uma aplicação web:
+    - server.js -> para começar uma aplicação
+    - instalação de pacotes: npm install http express debug --save
+
+    - debug: Debug de codigo
+    - express: MVC
+    - http: servidor

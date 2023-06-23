@@ -1,0 +1,140 @@
+{
+	"info": {
+		"_postman_id": "7733e4ea-bdd4-4a93-8a6f-ff4ad28cad9e",
+		"name": "API TINDER",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21240212"
+	},
+	"item": [
+		{
+			"name": "Rota default",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cadastra usuário",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"first_name\": \"teste 2\",\r\n    \"last_name\": \"teste 2\",\r\n    \"email\": \"teste2@gmail.com\",\r\n    \"date_birthday\": \"2002-04-11\",\r\n    \"password\": \"123456\",\r\n    \"gender\": \"feminino\",\r\n    \"interests\": [\"futebol\", \"musica\", \"programação\"]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Autenticação usuário",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"teste2@gmail.com\",\r\n    \"password\": \"123456\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/user/authenticate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"user",
+						"authenticate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Like",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmaXJzdF9uYW1lIjoidGVzdGUgMiIsImxhc3RfbmFtZSI6InRlc3RlIDIiLCJlbWFpbCI6InRlc3RlMkBnbWFpbC5jb20iLCJkYXRlX2JpcnRoZGF5IjoiMjAwMi0wNC0xMVQwMDowMDowMC4wMDBaIiwiZ2VuZGVyIjoiZmVtaW5pbm8iLCJpbnRlcmVzdHMiOlsiZnV0ZWJvbCIsIm11c2ljYSIsInByb2dyYW1hw6fDo28iXSwiaWF0IjoxNjg3MzExNjA2LCJleHAiOjE2ODczOTgwMDZ9.VP8cXNZh_SrK1valeJYfkawBjy3xSTUKfOP7YbTXBxY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmaXJzdF9uYW1lIjoidGVzdGUgMiIsImxhc3RfbmFtZSI6InRlc3RlIDIiLCJlbWFpbCI6InRlc3RlMkBnbWFpbC5jb20iLCJkYXRlX2JpcnRoZGF5IjoiMjAwMi0wNC0xMVQwMDowMDowMC4wMDBaIiwiZ2VuZGVyIjoiZmVtaW5pbm8iLCJpbnRlcmVzdHMiOlsiZnV0ZWJvbCIsIm11c2ljYSIsInByb2dyYW1hw6fDo28iXSwiaWF0IjoxNjg3MzExNjA2LCJleHAiOjE2ODczOTgwMDZ9.VP8cXNZh_SrK1valeJYfkawBjy3xSTUKfOP7YbTXBxY",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"teste\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/user/like/64924b30225e53c16a089f35",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"user",
+						"like",
+						"64924b30225e53c16a089f35"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
