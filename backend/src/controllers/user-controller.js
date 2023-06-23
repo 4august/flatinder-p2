@@ -22,7 +22,7 @@ exports.post = async (req, res, next) => {
     if (!contract.isValid()) {
       return res.status(400).send(contract.errors());
     }
-
+    
     await repository.create({
       first_name: req.body.first_name,
       last_name: req.body.last_name,
