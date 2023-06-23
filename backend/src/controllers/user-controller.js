@@ -2,9 +2,35 @@
 
 const ValidationContract = require('../validators/fluent-validator');
 const repository = require('../respositories/user-repository');
+//const repositoryPicture = require('../respositories/picture-repository')
 const User = require('../models/user-model');
 const md5 = require('md5');
-const authService = require('../services/auth-service')
+const authService = require('../services/auth-service');
+const Picture = require('../models/picture-model');
+
+exports.createPhoto = async (req, res) => {
+  try {
+    const { namePhoto } = req.body;
+
+    const file = req.file;
+
+    const picture = new Picture({
+      namePhoto,
+      srcPhoto: file.path
+    });
+
+    await picture.save();
+
+    res.json({
+      picture, msg: "Imagem salva com sucesso"
+    })
+
+  } catch (error) {
+    res.status(500).json({
+      message: "Erro ao salvar imagem"
+    });
+  }
+}
 
 exports.post = async (req, res, next) => {
   try {
@@ -30,7 +56,6 @@ exports.post = async (req, res, next) => {
     }
 
     await repository.create({
-      photo: req.body.photo,
       first_name: req.body.first_name,
       last_name: req.body.last_name,
       email: req.body.email,
