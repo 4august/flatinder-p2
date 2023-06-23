@@ -5,7 +5,7 @@ const User = require('../models/user-model');
 
 exports.authenticate = async (data) => {
     const res = await User.findOne({ // pega uma informação
-        email: data.email, 
+        email: data.email,
         password: data.password
     });
     return res;
@@ -14,4 +14,9 @@ exports.authenticate = async (data) => {
 exports.create = async (data) => {
     let user = new User(data);
     await user.save();
+}
+
+exports.getByEmail = async (email) => {
+    const res = await User.findOne({ email: email });
+    return res;
 }

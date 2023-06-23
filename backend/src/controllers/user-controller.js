@@ -6,8 +6,6 @@ const User = require('../models/user-model');
 const md5 = require('md5');
 const authService = require('../services/auth-service')
 
-const emailService = require('../services/email-service');
-
 exports.post = async (req, res, next) => {
   try {
     let contract = new ValidationContract();
@@ -16,11 +14,19 @@ exports.post = async (req, res, next) => {
     contract.isEmail(req.body.email, 'E-mail inválido');
     contract.hasMinLen(req.body.password, 6, 'A senha deve conter pelo menos 6 caracteres');
     contract.hasMinLen(req.body.date_birthday, 6, 'A data deve conter pelo menos 6 caracteres');
-    contract.hasMinLen(req.body.gender, 6, 'O genero deve conter pelo menos 6 caracteres');
+    contract.hasMinLen(req.body.gender, 6, 'O gênero deve conter pelo menos 6 caracteres');
 
     // Se os dados forem inválidos
     if (!contract.isValid()) {
       return res.status(400).send(contract.errors());
+    }
+
+    // Verificar se o email já está sendo utilizado por outro usuário
+    const existingUser = await repository.getByEmail(req.body.email);
+    if (existingUser) {
+      return res.status(400).send({
+        message: 'Email já está sendo utilizado'
+      });
     }
 
     await repository.create({
@@ -34,12 +40,6 @@ exports.post = async (req, res, next) => {
       interests: req.body.interests
     });
 
-    emailService.send(
-      req.body.email,
-      'Bem vindo ao tinder',
-      global.EMAIL_TMPL.replace('{0}', req.body.first_name)
-    );
-
     res.status(201).send({
       message: 'Usuário cadastrado com sucesso!'
     });
@@ -50,6 +50,7 @@ exports.post = async (req, res, next) => {
     });
   }
 };
+
 // metodo de autenticação
 exports.authenticate = async (req, res, next) => {
   try {
