@@ -4,16 +4,6 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const schema = new Schema({
-    namePhoto: {
-        type: String,
-        required: [true, 'É preciso ter uma imagem'],
-        trim: true
-    },
-    srcPhoto: {
-        type: String,
-        required: [true, 'É preciso ter uma imagem'],
-        trim: true
-    },
     first_name: {
         type: String,
         required: [true, 'É preciso preencher os campos'],
