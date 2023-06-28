@@ -33,7 +33,7 @@ svg {
 .container-main {
     min-height: 150vh;
     align-content: center;
-    display: grid;
+    display: block;
 }
 
 .navbar {

@@ -10,47 +10,27 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
         crossorigin="anonymous"></script>
-    <title>Matches</title>
+    <title>Tinder</title>
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <!-- Add the slick-theme.css if you want default styling -->
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
 </head>
 
 <body>
     <div class="container container-main">
-        <div class="row ">
-            <div class="col-4 device whoAmI">
+        <div class="row">
 
-                <div class="navbar d-flex justify-content-space-between">
-                    <img id="profileDetails" src="imagens/right.svg" alt="">
-                    <span id="interests">Skip</span>
-                </div>
-                <h1 class="">Who am I</h1>
-                <form id="form" class="form" action="">
-                    <div class="row">
-                        <div class="col-12 sex-option">
-                            <input type="radio" name="sex" value="woman" id="woman">
-                            <label for="woman">Woman</label>
-                        </div>
-                        <div class="col-12 sex-option">
-                            <input type="radio" name="sex" value="man" id="man">
-                            <label for="man">Man</label>
-                        </div>
-                        <div class="col-12 sex-option">
-                            <input type="radio" name="sex" value="other" id="Other">
-                            <label for="Other">Other</label>
-                        </div>
-                        <button>Continue</button>
-                    </div>
-                </form>
-            </div>
         </div>
     </div>
-    <!-- 
-        <script src="view/onboardingView.js"></script>
-    -->    
-    <script src="view/profileView.js"></script>
-    <script src="controller/profileController.js"></script> 
-    
-    <script src="view/matchesView.js"></script>
+
+    <script src="view/onboardingView.js"></script>
+    <script src="controller/onboardingController.js"></script>
+
+    <!--<script src="view/profileView.js"></script>
+    <script src="controller/profileController.js"></script>    -->
+
+    <!--<script src="view/matchesView.js"></script>
     <script src="controller/matchesController.js"></script>
     
     <script src="view/matchView.js"></script>
@@ -70,15 +50,30 @@
     <script src="view/whoAmIView.js"></script>
     <script src="controller/whoAmIController.js"></script>
     
-    <script src="view/alertError.js"></script>
-
-    <script src="view/profileDetailsView.js"></script>
+ <script src="view/profileDetailsView.js"></script>
     <script src="controller/profileDetailsController.js"></script> 
 
     <script src="view/navigationView.js"></script>
-    <script src="controller/navigationController.js"></script>
+    <script src="controller/navigationController.js"></script> -->
 
     <script src="router.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script>
+        function sliderOnboarding() {
+            $('.info-carrossel').slick({
+                dots: true,
+                infinite: true,
+                arrows: false,
+                speed: 300,
+                autoplay: true,
+                slidesToShow: 1,
+            });
+        }
+        $(document).ready(function () {
+            sliderOnboarding();
+        });
+    </script>
 </body>
 
 </html>

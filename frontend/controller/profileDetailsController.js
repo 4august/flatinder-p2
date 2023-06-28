@@ -14,7 +14,7 @@ class ProfileDetailsController {
 
         this.firstName = document.querySelector("#first-name");
         this.lastName = document.querySelector("#last-name");
-        this.birthDayDate = document.querySelector("#birthday-date");
+        this.dateBirth = document.querySelector("#birthday-date");
 
         this.obj = {};
         this.formData = new FormData();
@@ -28,47 +28,30 @@ class ProfileDetailsController {
             new Router().goToWhoAmI();
             console.log("ir pra etapa 2")
         });
-        console.log(this.chooseImage)
         this.chooseImage.addEventListener("change", () => {
-            alert("vou escolher uma imagem pra por");
-            const newImage = new FileReader();
-
-             newImage.addEventListener("load", ()=>{
-                console.log(newImage.result);
-                this.imgString = newImage.result
-                
-            })
-            newImage.readAsDataURL(this.chooseImage.files[0])
+            this.convertImgToBase64();
             this.showPreviewImage();
 
         });
         this.sendFormulary.addEventListener("click", (e) => {
             e.preventDefault();
-            this.createUser();
-            new Router().goToWhoAmI();
-
+            this.validate();
         });
     }
-    convertImgToURL(){
-        
-    }
-    createUser() {
-        this.obj = {
-            "first_name": this.firstName.value,
-            "last_name": this.lastName.value,
-            "birthday_date": this.birthDayDate.value
-        }
-        this.objIMg = {
-            "img": this.imgString
-        }
+    convertImgToBase64() {
+        const newImage = new FileReader();
 
-        localStorage.setItem("profile_image",this.imgString)
+        newImage.addEventListener("load", () => {
+            console.log(newImage.result);
+            this.imgString = newImage.result;
+        })
+        newImage.readAsDataURL(this.chooseImage.files[0])
+    }
+    storageUser() {
+        localStorage.setItem("profile_image", this.imgString)
         localStorage.setItem("first_name", this.firstName.value);
         localStorage.setItem("last_name", this.lastName.value);
-        localStorage.setItem("date_birth", this.birthDayDate.value)
-
-
-        console.log(this.obj, this.objIMg);
+        localStorage.setItem("date_birth", this.dateBirth.value)
     }
     showPreviewImage() {
         if (this.chooseImage.files && this.chooseImage.files[0]) {
@@ -78,6 +61,21 @@ class ProfileDetailsController {
             };
             renderImage.readAsDataURL(this.chooseImage.files[0])
         }
+    }
+    validate() {
+        if (this.chooseImage.files[0] == undefined ||
+            this.firstName.value == "" ||
+            /\s/g.test(this.lastName.value) ||
+            this.lastName.value == "" ||
+            /\s/g.test(this.lastName.value) ||
+            this.dateBirth.value == ''
+        ) {
+            alert("preencha corretamente os campos")
+            return false
+        }
+        this.storageUser();
+        new Router().goToWhoAmI();
+        return true
     }
 }
 let profileDetail = new ProfileDetailsController();
