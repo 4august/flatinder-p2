@@ -42,14 +42,20 @@ class WhoAmIController {
         });
         this.sentFormulary.addEventListener("click", e => {
             e.preventDefault();
-            if (Object.keys(this.sex).length === 0) {
-                alert("po irmao preenche o bagulho");
-            } else {
-               localStorage.setItem("sex", this.sex);
-               new Router().goToInterests();
-                console.log("informação enviada", this.sex)
-            }
+            this.validate()
         });
+    }
+    storageSex = () => localStorage.setItem("sex", this.sex);
+    validate() {
+        if (Object.keys(this.sex).length === 0) {
+            alert("preencha os campos corretamente");
+            return false
+        } else {
+            this.storageSex();
+            new Router().goToInterests();
+            return true
+        }
+
     }
 }
 let whoAmI = new WhoAmIController();

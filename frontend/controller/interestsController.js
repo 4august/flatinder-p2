@@ -15,10 +15,10 @@ class InterestsController {
         this.bind();
     }
     bind() {
-        this.goToWhoAmI.addEventListener("click", ()=>{
-            new Router().goToWhoAmI();    
+        this.goToWhoAmI.addEventListener("click", () => {
+            new Router().goToWhoAmI();
         });
-        
+
         this.checkBoxes.forEach((checkbox, i) => {
             checkbox.addEventListener("click", () => {
                 if (checkbox.checked) {
@@ -30,33 +30,43 @@ class InterestsController {
                 }
             })
         })
-        
+
         this.sentFormulary.addEventListener("click", e => {
             e.preventDefault();
-            if (Object.keys(this.interests).length === 0) {
-                alert("preencha os campos corretamente");
-            }else{
-                let joinedInterests =  this.interests.join(", ")
-                localStorage.setItem("interests", JSON.stringify(joinedInterests));
-                
-                let form = {
-                    image_profile: localStorage.getItem("profile_image"),
-                    first_name : localStorage.getItem("first_name"),
-                    last_name : localStorage.getItem("last_name"),
-                    date_birth : localStorage.getItem("date_birth"),
-                    sex : localStorage.getItem("sex"),
-                    interests : localStorage.getItem("interests")
-                }
-                console.log(form)
-                fetch("http://localhost:3000/cadaster", {
-                    method: "POST",
-                    headers: {"Content-Type": "application/json"},
-                    body: JSON.stringify(form)
-                });
-
-                new Router().goToMain()
-            }
+            this.validate();
         });
+    }
+    storageInterests() {
+        let joinedInterests = this.interests.join(", ")
+        localStorage.setItem("interests", JSON.stringify(joinedInterests));
+    }
+    fetchUser() {
+        let form = {
+            image_profile: localStorage.getItem("profile_image"),
+            first_name: localStorage.getItem("first_name"),
+            last_name: localStorage.getItem("last_name"),
+            date_birth: localStorage.getItem("date_birth"),
+            sex: localStorage.getItem("sex"),
+            interests: localStorage.getItem("interests")
+        }
+        fetch("http://localhost:3000/cadaster", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(form)
+        });
+    }
+    validate() {
+        if (Object.keys(this.interests).length === 0) {
+            alert("preencha os campos corretamente");
+            return false
+        } else {
+            this.storageInterests();
+            this.fetchUser();
+
+            new Router().goToMain();
+            return true
+        }
+
     }
 }
 

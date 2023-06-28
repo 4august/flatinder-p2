@@ -30,7 +30,7 @@ class OnboardingView{
                 
             </div>
             <div class="footer">
-                <button class="go-cadaster">Say hello</button>
+                <button class="go-cadaster">Create an account</button>
                 <h6>Already have an account? <a href="#">Sign In</a></h6>
             </div>
         </div>
